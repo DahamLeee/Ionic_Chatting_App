@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      VanillaTalk
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="main_img_container">
+    <img class= "main_img" src = "assets/imgs/chat.png" alt='main_img'>
+  </div>
+    <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-label floating >Email address </ion-label>
+            <ion-input [(ngModel)]="email" type="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
+          </ion-item>
+        </ion-card-content>
+        <ion-row>
+          <button ion-button outline (click)='register()'>Register</button>
+          <button ion-button (click)='login()' >Login</button>
+        </ion-row>
+      </ion-card>
+</ion-content>

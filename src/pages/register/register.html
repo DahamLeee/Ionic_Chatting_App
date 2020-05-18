@@ -1,0 +1,48 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating> First Name </ion-label>
+        <ion-input [(ngModel)]="profile.firstName" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Last Name </ion-label>
+        <ion-input [(ngModel)]="profile.lastName" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Email address </ion-label>
+        <ion-input [(ngModel)]="profile.email" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Password </ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating> Status Message </ion-label>
+          <ion-input [(ngModel)]="profile.status" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-label floating> Phone Number </ion-label>
+            <ion-input [(ngModel)]="profile.phonenumber" type="text"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-row>
+      <button ion-button outline (click)="register()">Register</button>
+    </ion-row>
+  </ion-card>
+</ion-content>

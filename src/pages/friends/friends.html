@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Friends</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ng-container *ngFor="let profile of profileList | async">
+          <ion-item *ngIf="profile.key != myuid" (click)="selectProfile(profile)">
+            <ion-avatar item-left>
+              <img [src]="profile.avatar">
+            </ion-avatar>
+            <h2>{{profile.firstName}} {{profile.lastName}}: {{profile.status}}</h2>
+          </ion-item>
+      </ng-container>
+</ion-list>
+</ion-content>

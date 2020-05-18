@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class='chat_title'>{{peerName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-item>
+      <ng-container *ngFor = "let msg of msgList | async or">
+        <ng-container *ngIf ="((msg.fromID == myuid) && (msg.toID == peerID)) || ((msg.fromID == peerID) && (msg.toID == myuid))">
+          <ion-item *ngIf="msg.fromID == myuid; else other" class="chat_right">
+            <ion-avatar item-right>
+              <img src="assets/imgs/avatar1.jpg">
+            </ion-avatar>
+            <!--내꺼면 내 이름-->
+            <h2>{{myName}}</h2>
+            <!-- 상대방이 읽지 않았다면 빨간색으로 1을 출력한다.-->
+              <p><ion-badge *ngIf="msg.unread==1; else read" class="who">{{msg.unread}}</ion-badge> {{msg.msg}}</p>
+          </ion-item>
+          <ng-template #other>
+            <ion-item>
+              <ion-avatar item-left>
+                <img src="assets/imgs/avatar1.jpg">
+              </ion-avatar>
+              <!-- 상대방꺼면 상대방 이름 -->
+              <h2>{{peerName}}</h2>
+              <p>{{msg.msg}}</p>
+            </ion-item>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+  </ion-item>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9>
+          <ion-textarea [(ngModel)]="msg" placeholder="Enter messgae"></ion-textarea>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button clear (click)="sendMessage()">Submit</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

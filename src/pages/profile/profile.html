@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="profile__img-container">
+    <img class="profile__img" src="assets/imgs/profile1.png" alt=''>
+  </div>
+  <ion-card *ngIf="profile">
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating > First Name </ion-label><br>
+        <ion-input [value]="profile.firstName" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Last Name </ion-label>
+        <ion-input [value]="profile.lastName" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Email address </ion-label>
+        <ion-input [value]="profile.email" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Status message </ion-label>
+        <ion-input [value]="profile.status" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Phone Number </ion-label>
+        <ion-input [value]="profile.phonenumber" [readonly]="true"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block (click)="logout()" color='danger'>Logout</button>
+</ion-content>
